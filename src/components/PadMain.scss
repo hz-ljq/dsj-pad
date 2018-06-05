@@ -1,0 +1,71 @@
+.switch-enter-active {
+  animation: switch-in 1s;
+}
+
+.switch-leave-active {
+  animation: switch-out 0.6s;
+}
+@keyframes switch-in {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes switch-out {
+  0% {
+    transform: translateX(0px);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+}
+
+
+#shell-main {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+
+  .btn1, .btn2, .btn3, .btn4 {
+    position: absolute;
+    border: 1px solid red;
+  }
+
+  .btn1{
+    left: 100px;
+    top: 200px;
+  }
+  .btn2{
+    left: 100px;
+    top: 250px;
+  }
+  .btn3{
+    left: 870px;
+    top: 200px;
+  }
+  .btn4{
+    left: 870px;
+    top: 250px;
+  }
+
+  .views{
+    position: absolute;
+    left: 200px;
+    top: 100px;
+    width: 2000px;
+    height: 450px;
+    border: 1px solid red;
+    overflow: hidden;
+    transform: scale(0.3, 0.5);
+    transform-origin: 0 0 0;
+    background-color: black;
+  }
+}

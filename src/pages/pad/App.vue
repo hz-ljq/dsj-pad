@@ -3,7 +3,6 @@
   <!-- <img src="./assets/logo.png"> -->
   <!-- <router-view/> -->
   <pad-main/>
-
 </div>
 </template>
 
@@ -34,5 +33,9 @@ export default {
   /* text-align: center;
   color: #2c3e50;
   margin-top: 60px; */
+}
+body{
+  padding: 0;
+  margin: 0;
 }
 </style>

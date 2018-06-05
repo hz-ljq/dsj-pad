@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-import page1 from '@/components/pages/page1'
-import page2 from '@/components/pages/page2'
-import page3 from '@/components/pages/page3'
-import page4 from '@/components/pages/page4'
+import page1 from '@/components/dapinPages/page1'
+import page2 from '@/components/dapinPages/page2'
+import page3 from '@/components/dapinPages/page3'
+import page4 from '@/components/dapinPages/page4'
 
 Vue.use(Router)
 

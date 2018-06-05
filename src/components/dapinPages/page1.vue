@@ -1,7 +1,7 @@
 <template>
 <div id="page1">
   <div class="title">
-    I'm page1111111111!!!!!!!
+    I'm page1
   </div>
 </div>
 </template>

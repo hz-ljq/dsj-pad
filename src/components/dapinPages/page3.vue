@@ -1,16 +1,16 @@
 <template>
-<div id="page4">
+<div id="page3">
   <div class="title">
-    I'm page44444444444!!!!!!!
+    I'm page3
   </div>
 </div>
 </template>
 
 <script>
-import './page4.scss'
+import './page3.scss'
 
 export default {
-  name: 'page4',
+  name: 'page3',
   data() {
     return {
 

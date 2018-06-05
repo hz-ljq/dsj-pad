@@ -13,11 +13,35 @@
     btn4
   </div>
 
-  <div class='views'>
+  <div id='main-view'>
     <transition name='switch' appear>
-      <component :is='view'></component>
+      <component :is='activeView'></component>
     </transition>
   </div>
+
+  <div id='sub-view'>
+    <div class="title">
+      副视图区
+    </div>
+  </div>
+
+  <div id="edit-btn" @click="enterEditStatus">
+    <div v-if="!editStatus">
+      进入编辑状态
+    </div>
+    <div v-else>
+      退出编辑状态
+    </div>
+  </div>
+
+  <div id="drag-in-btn" @click="dragInHandler">
+    移入副视图
+  </div>
+
+  <div id="drag-out-btn" @click="dragOutHandler">
+    移出副视图
+  </div>
+
 </div>
 </template>
 
@@ -26,27 +50,42 @@ import './PadMain.scss'
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
 
-import page1 from './pages/page1.vue'
-import page2 from './pages/page2.vue'
-import page3 from './pages/page3.vue'
-import page4 from './pages/page4.vue'
+import page1 from './dapinPages/page1.vue'
+import page2 from './dapinPages/page2.vue'
+import page3 from './dapinPages/page3.vue'
+import page4 from './dapinPages/page4.vue'
 
 export default {
   name: 'shell',
   data() {
     return {
-      view: 'page1',
-      stompClient: null
+      activeView: 'page1',
+      stompClient: null,
+      editStatus: false
     }
   },
   methods: {
+    enterEditStatus() {
+      this.editStatus = !this.editStatus;
+      window._bus.$emit('editStatusSwitch', this.editStatus);
+    },
+    dragInHandler() {
+      window._bus.$emit('dragIn', '');
+    },
+    dragOutHandler() {
+      window._bus.$emit('dragOut', '');
+    },
     goTo(pageIndex) {
-      this.view = 'page' + pageIndex;
+      let view = 'page' + pageIndex;
+      if (this.activeView === view) return;
+
+      this.activeView = view;
       let json = {
         userId: 'admin1', // 发给用户id为admin1的用户
         content: pageIndex
       };
       this.stompClient.send('/app/message', {}, JSON.stringify(json));
+      this.editStatus = false;
     },
     initWebsocket() {
       // 建立连接对象（还未发起连接）

@@ -63,7 +63,7 @@ export default {
         let status = {
           left: module.offsetLeft - posOfModule.left + document.getElementById('app').offsetWidth / 2 - module.offsetWidth / 2,
           top: module.offsetTop - posOfModule.top + document.getElementById('app').offsetHeight / 2 - module.offsetHeight / 2,
-          rotateZ: 360,
+          // rotateZ: 360,
           scale: 1
         };
         window.$('#' + id).velocity('stop').velocity(status, { // 动画最终状态

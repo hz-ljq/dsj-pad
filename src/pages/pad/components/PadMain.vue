@@ -20,9 +20,9 @@
   </div>
 
   <div id='sub-view'>
-    <div class="title">
+    <!-- <div class="title">
       副视图区
-    </div>
+    </div> -->
   </div>
 
   <div id="edit-btn" @click="enterEditStatus">
@@ -35,11 +35,11 @@
   </div>
 
   <div id="drag-in-btn" @click="dragInHandler">
-    移入副视图
+    <!-- 移入副视图 -->
   </div>
 
   <div id="drag-out-btn" @click="dragOutHandler">
-    移出副视图
+    <!-- 移出副视图 -->
   </div>
 
 </div>

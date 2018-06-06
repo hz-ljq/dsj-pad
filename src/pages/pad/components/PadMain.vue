@@ -15,7 +15,7 @@
 
   <div id='main-view'>
     <transition name='switch' appear>
-      <component :is='activeView'></component>
+      <component :is='activeView' mode='pad'></component>
     </transition>
   </div>
 
@@ -50,10 +50,10 @@ import './PadMain.scss'
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
 
-import page1 from './dapinPages/page1.vue'
-import page2 from './dapinPages/page2.vue'
-import page3 from './dapinPages/page3.vue'
-import page4 from './dapinPages/page4.vue'
+import page1 from '../../../components/dapinPages/page1.vue'
+import page2 from '../../../components/dapinPages/page2.vue'
+import page3 from '../../../components/dapinPages/page3.vue'
+import page4 from '../../../components/dapinPages/page4.vue'
 
 export default {
   name: 'shell',
@@ -82,7 +82,11 @@ export default {
       this.activeView = view;
       let json = {
         userId: 'admin1', // 发给用户id为admin1的用户
-        content: pageIndex
+        // content: pageIndex
+        content: JSON.stringify({
+          eventType: 'switchPage',
+          payload: pageIndex
+        })
       };
       this.stompClient.send('/app/message', {}, JSON.stringify(json));
       this.editStatus = false;
@@ -99,11 +103,11 @@ export default {
           'password': '123456'
         },
         (frame) => {
-          // 连接成功时（服务器响应 CONNECTED 帧）的回调方法
-          this.stompClient.subscribe('/user/admin1/message', (msg) => { // TODO:订阅发送给【用户admin1】的消息；
-            let content = JSON.parse(JSON.parse(msg.body).responseMessage);
-            console.log(content);
-          });
+          // // 连接成功时（服务器响应 CONNECTED 帧）的回调方法
+          // this.stompClient.subscribe('/user/admin1/message', (msg) => { // TODO:订阅发送给【用户admin1】的消息；
+          //   let content = JSON.parse(JSON.parse(msg.body).responseMessage);
+          //   console.log(content);
+          // });
         },
         (error) => {
           // 连接失败时（服务器响应 ERROR 帧）的回调方法
@@ -115,6 +119,29 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.initWebsocket();
+
+      window._bus.$on('whoDragIn', (activeModuleId) => {
+        let json = {
+          userId: 'admin1', // 发给用户id为admin1的用户
+          content: JSON.stringify({
+            eventType: 'dragIn',
+            payload: JSON.stringify({
+              id: activeModuleId
+            })
+          })
+        };
+        this.stompClient.send('/app/message', {}, JSON.stringify(json));
+      });
+
+      window._bus.$on('whoDragOut', () => {
+        let json = {
+          userId: 'admin1', // 发给用户id为admin1的用户
+          content: JSON.stringify({
+            eventType: 'dragOut'
+          })
+        };
+        this.stompClient.send('/app/message', {}, JSON.stringify(json));
+      });
     });
   },
   components: {

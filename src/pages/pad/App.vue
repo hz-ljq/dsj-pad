@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PadMain from '../../components/PadMain.vue'
+import PadMain from './components/PadMain.vue'
 export default {
   name: 'App',
   data() {
@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,5 +37,8 @@ export default {
 body{
   padding: 0;
   margin: 0;
+  & * {
+    box-sizing: border-box;
+  }
 }
 </style>

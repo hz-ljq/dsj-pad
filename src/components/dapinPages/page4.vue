@@ -1,8 +1,8 @@
 <template>
 <div id="page4">
-  <div class="title">
+  <!-- <div class="title">
     主视图区：I'm page4
-  </div>
+  </div> -->
 
   <!-- <div id="module1" @mousedown="mousedownFlag = true" @mousemove="mousemoveHandler"> -->
   <div id="module1" :class="{edit: editFlag && !moduleInSubview.module1, active: activeModuleId === 'module1'}" @click="setActiveModule">
@@ -99,11 +99,13 @@ export default {
           let scaleX = matrixArr[0];
           let scaleY = matrixArr[3];
 
+          let scaleBase = activeModule.offsetWidth * scaleX / (activeModule.offsetHeight * scaleY) >= subView.offsetWidth / subView.offsetHeight
+          let scaleVal = scaleBase ? subView.offsetWidth / (activeModule.offsetWidth * scaleX) : subView.offsetHeight / (activeModule.offsetHeight * scaleY)
           let status = {
             left: (centerOfSubView.left - posOfMainView.left) / scaleX - activeModule.offsetWidth / 2,
             top: (centerOfSubView.top - posOfMainView.top) / scaleY - activeModule.offsetHeight / 2,
             rotateZ: 360,
-            scale: 2
+            scale: scaleVal * 0.85
             // boxShadowBlur: '0px',
             // boxShadowSpread: '0px'
           };

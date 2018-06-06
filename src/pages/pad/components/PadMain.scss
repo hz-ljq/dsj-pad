@@ -32,68 +32,141 @@
   position: absolute;
   width: 2048px;
   height: 1536px;
-  background: url('../assets/images/bg.png');
+  background: url("../assets/images/bg.jpg") no-repeat;
 
   .btn1,
   .btn2,
   .btn3,
-  .btn4 {
+  .btn4,
+  .btn5,
+  .btn6,
+  .btn7,
+  .btn8,
+  .btn9 {
     position: absolute;
-    width: 60px;
-    height: 20px;
-    line-height: 20px;
-    border: 1px solid red;
-    font-size: 14px;
-    text-align: center;
+    // line-height: 20px;
+    // border: 1px solid red;
+    // font-size: 14px;
+    // text-align: center;
+    transform: scale(0.8);
+    opacity: 0.3;
+    z-index: 200;
   }
 
   .btn1 {
-    left: 100px;
-    top: 50px;
+    width: 320px;
+    height: 260px;
+    left: 30px;
+    top: 250px;
+    background: url("../assets/images/jjsj.png") no-repeat;
   }
 
   .btn2 {
-    left: 100px;
-    top: 110px;
+    width: 318px;
+    height: 260px;
+    left: 30px;
+    top: 550px;
+    background: url("../assets/images/gllw.png") no-repeat;
   }
 
   .btn3 {
-    left: 840px;
-    top: 50px;
+    width: 269px;
+    height: 260px;
+    left: 30px;
+    top: 850px;
+    background: url("../assets/images/zonglan.png") no-repeat;
   }
 
   .btn4 {
+    width: 326px;
+    height: 260px;
+    left: 30px;
+    top: 1150px;
+    background: url("../assets/images/wxpys.png") no-repeat;
+  }
+
+  .btn5 {
+    width: 301px;
+    height: 260px;
+    right: 30px;
+    top: 250px;
+    background: url("../assets/images/zfsp.png") no-repeat;
+  }
+
+  .btn6 {
+    width: 301px;
+    height: 260px;
+    right: 30px;
+    top: 550px;
+    background: url("../assets/images/csjt.png") no-repeat;
+  }
+
+  .btn7 {
+    width: 301px;
+    height: 260px;
+    right: 30px;
+    top: 850px;
+    background: url("../assets/images/slgh.png") no-repeat;
+  }
+
+  .btn8 {
+    width: 299px;
+    height: 259px;
+    right: 30px;
+    top: 1150px;
+    background: url("../assets/images/zdsn.png") no-repeat;
+  }
+
+  .btn9 {
+    width: 299px;
+    height: 260px;
     left: 840px;
     top: 110px;
+    background: url("../assets/images/jtjs.png") no-repeat;
+  }
+
+  .activeBtn{
+    opacity: 1;
+    transform: scale(1);
   }
 
   #main-view {
     position: absolute;
     // left: 200px;
     // top: 0;
-    left: 319px;
-    top: 320px;
-    width: 1920px;
-    height: 1080px;
+    left: 300px;
+    top: 330px;
+    width: 2000px;
+    height: 450px;
     // border: 1px solid red;
     // overflow: hidden;
-    transform: scale(0.734375, 0.4212962963);
+    transform: scale(0.705, 1);
     transform-origin: 0 0 0;
-    // background-color: black;
+    background-color: black;
+    // overflow: hidden;
+    z-index: 100;
+    // background: url("../assets/images/main-view.png") no-repeat;
+    .border-images{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255,0.3);
+      pointer-events: none;
+    }
   }
 
   #sub-view {
     position: absolute;
     // left: 200px;
     // top: 200px;
-    left: 354.5px;
+    left: 334px;
     top: 880px;
     // width: 600px;
     // height: 200px;
     width: 1339px;
     height: 551px;
     // border: 1px solid red;
-    background: url('../assets/images/sub-view.png');
+    background: url("../assets/images/sub-view.png") no-repeat;
     // overflow: hidden;
     .title {
       position: absolute;
@@ -109,8 +182,8 @@
 
   #edit-btn {
     position: absolute;
-    left: 840px;
-    top: 200px;
+    left: 1240px;
+    top: 820px;
     width: 100px;
     height: 30px;
     line-height: 30px;
@@ -118,6 +191,7 @@
     font-size: 12px;
     text-align: center;
   }
+
   #drag-in-btn {
     position: absolute;
     left: 880px;
@@ -128,8 +202,9 @@
     // border: 1px solid red;
     // font-size: 12px;
     // text-align: center;
-    background: url('../assets/images/arrow-in.png');
+    background: url("../assets/images/arrow-in.png") no-repeat;
   }
+
   #drag-out-btn {
     position: absolute;
     left: 1080px;
@@ -140,6 +215,6 @@
     // border: 1px solid red;
     // font-size: 12px;
     // text-align: center;
-    background: url('../assets/images/arrow-out.png');
+    background: url("../assets/images/arrow-out.png") no-repeat;
   }
 }

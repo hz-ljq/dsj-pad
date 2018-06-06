@@ -1,8 +1,8 @@
 <template>
 <div id="page1">
-  <div class="title">
+  <!-- <div class="title">
     I'm page1
-  </div>
+  </div> -->
 </div>
 </template>
 

@@ -1,22 +1,38 @@
 <template>
 <div id='shell-main'>
-  <div class='btn1' @click="goTo(1)">
-    btn1
+  <div class='btn1' :class="{activeBtn: activeBtn === 'btn1'}" @click="goTo(1)">
+    <!-- btn1 -->
   </div>
-  <div class='btn2' @click="goTo(2)">
-    btn2
+  <div class='btn2' :class="{activeBtn: activeBtn === 'btn2'}" @click="goTo(2)">
+    <!-- btn2 -->
   </div>
-  <div class='btn3' @click="goTo(3)">
-    btn3
+  <div class='btn3' :class="{activeBtn: activeBtn === 'btn3'}" @click="goTo(3)">
+    <!-- btn3 -->
   </div>
-  <div class='btn4' @click="goTo(4)">
-    btn4
+  <div class='btn4' :class="{activeBtn: activeBtn === 'btn4'}" @click="goTo(4)">
+    <!-- btn4 -->
+  </div>
+  <div class='btn5' :class="{activeBtn: activeBtn === 'btn5'}" @click="goTo(5)">
+    <!-- btn1 -->
+  </div>
+  <div class='btn6' :class="{activeBtn: activeBtn === 'btn6'}" @click="goTo(6)">
+    <!-- btn2 -->
+  </div>
+  <div class='btn7' :class="{activeBtn: activeBtn === 'btn7'}" @click="goTo(7)">
+    <!-- btn3 -->
+  </div>
+  <div class='btn8' :class="{activeBtn: activeBtn === 'btn8'}" @click="goTo(8)">
+    <!-- btn4 -->
+  </div>
+  <div class='btn9' :class="{activeBtn: activeBtn === 'btn9'}" @click="goTo(9)">
+    <!-- btn4 -->
   </div>
 
   <div id='main-view'>
     <transition name='switch' appear>
       <component :is='activeView' mode='pad'></component>
     </transition>
+    <div class="border-images"></div>
   </div>
 
   <div id='sub-view'>
@@ -61,7 +77,9 @@ export default {
     return {
       activeView: 'page1',
       stompClient: null,
-      editStatus: false
+      editStatus: false,
+
+      activeBtn: 'btn1'
     }
   },
   methods: {
@@ -76,6 +94,7 @@ export default {
       window._bus.$emit('dragOut', '');
     },
     goTo(pageIndex) {
+      this.activeBtn = 'btn' + pageIndex;
       let view = 'page' + pageIndex;
       if (this.activeView === view) return;
 

@@ -28,11 +28,45 @@
   }
 }
 
-#shell-main {
+#pad-main{
   position: absolute;
   width: 2048px;
   height: 1536px;
-  background: url("../assets/images/bg.jpg") no-repeat;
+  #main-view {
+    position: absolute;
+    // left: 200px;
+    // top: 0;
+    left: 334px;
+    top: 330px;
+    width: 2000px;
+    height: 450px;
+    // border: 1px solid red;
+    // overflow: hidden;
+    transform: scale(0.779, 1.06);
+    transform-origin: 0 0 0;
+    // background-color: black;
+    z-index: 0;
+    // overflow: hidden;
+    // z-index: 100;
+    // border-image: url("../assets/images/main-view.png") 34 60 40 20 fill stretch;
+    // background: url("../assets/images/main-view.png") no-repeat;
+    // .border-images{
+    //   position: absolute;
+    //   width: 2000px;
+    //   height: 450px;
+    //   background-color: rgba(255,255,255,0.3);
+    //   pointer-events: none;
+    //   background: url("../assets/images/main-view.png") no-repeat;
+    // }
+  }
+
+  #shell-main {
+    position: absolute;
+    width: 2048px;
+    height: 1536px;
+    background: url("../assets/images/bg.png") no-repeat;
+    pointer-events: none;
+  }
 
   .btn1,
   .btn2,
@@ -50,11 +84,11 @@
     // text-align: center;
     transform: scale(0.8);
     opacity: 0.3;
-    z-index: 200;
+    // z-index: 200;
   }
 
   .btn1 {
-    width: 320px;
+    width: 318px;
     height: 260px;
     left: 30px;
     top: 250px;
@@ -70,7 +104,7 @@
   }
 
   .btn3 {
-    width: 269px;
+    width: 318px;
     height: 260px;
     left: 30px;
     top: 850px;
@@ -78,7 +112,7 @@
   }
 
   .btn4 {
-    width: 326px;
+    width: 318px;
     height: 260px;
     left: 30px;
     top: 1150px;
@@ -86,7 +120,7 @@
   }
 
   .btn5 {
-    width: 301px;
+    width: 318px;
     height: 260px;
     right: 30px;
     top: 250px;
@@ -94,7 +128,7 @@
   }
 
   .btn6 {
-    width: 301px;
+    width: 318px;
     height: 260px;
     right: 30px;
     top: 550px;
@@ -102,7 +136,7 @@
   }
 
   .btn7 {
-    width: 301px;
+    width: 318px;
     height: 260px;
     right: 30px;
     top: 850px;
@@ -110,15 +144,15 @@
   }
 
   .btn8 {
-    width: 299px;
-    height: 259px;
+    width: 318px;
+    height: 260px;
     right: 30px;
     top: 1150px;
     background: url("../assets/images/zdsn.png") no-repeat;
   }
 
   .btn9 {
-    width: 299px;
+    width: 318px;
     height: 260px;
     left: 840px;
     top: 110px;
@@ -130,30 +164,7 @@
     transform: scale(1);
   }
 
-  #main-view {
-    position: absolute;
-    // left: 200px;
-    // top: 0;
-    left: 300px;
-    top: 330px;
-    width: 2000px;
-    height: 450px;
-    // border: 1px solid red;
-    // overflow: hidden;
-    transform: scale(0.705, 1);
-    transform-origin: 0 0 0;
-    background-color: black;
-    // overflow: hidden;
-    z-index: 100;
-    // background: url("../assets/images/main-view.png") no-repeat;
-    .border-images{
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255,255,255,0.3);
-      pointer-events: none;
-    }
-  }
+
 
   #sub-view {
     position: absolute;
@@ -168,6 +179,7 @@
     // border: 1px solid red;
     background: url("../assets/images/sub-view.png") no-repeat;
     // overflow: hidden;
+    z-index: 100;
     .title {
       position: absolute;
       width: 100%;
@@ -176,7 +188,7 @@
       font-size: 60px;
       line-height: 200px;
       text-align: center;
-      z-index: -1;
+      // z-index: -1;
     }
   }
 
@@ -190,6 +202,7 @@
     border: 1px solid red;
     font-size: 12px;
     text-align: center;
+    // z-index: 1000;
   }
 
   #drag-in-btn {
@@ -203,6 +216,7 @@
     // font-size: 12px;
     // text-align: center;
     background: url("../assets/images/arrow-in.png") no-repeat;
+    // z-index: 1000;
   }
 
   #drag-out-btn {
@@ -216,5 +230,6 @@
     // font-size: 12px;
     // text-align: center;
     background: url("../assets/images/arrow-out.png") no-repeat;
+    // z-index: 1000;
   }
 }

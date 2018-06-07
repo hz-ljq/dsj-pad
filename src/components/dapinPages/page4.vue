@@ -57,7 +57,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.mode === 'pad') {
-        window._bus.$on('editStatusSwitch', (payload) => {
+        window._bus.$off('editStatusSwitch').$on('editStatusSwitch', (payload) => {
           this.editFlag = payload;
           if (!this.editFlag) {
             this.activeModuleId = '';
@@ -73,9 +73,11 @@ export default {
           }
         });
 
-        window._bus.$off('dragIn');
-        window._bus.$on('dragIn', (payload) => {
+        window._bus.$off('dragIn').$on('dragIn', (payload) => {
           if (!this.activeModuleId) return;
+
+          window._bus.$emit('dragOut', '');
+
           let mainView = document.getElementById('main-view');
           let posOfMainView = {
             left: mainView.getBoundingClientRect().left,
@@ -127,8 +129,7 @@ export default {
           window._bus.$emit('whoDragIn', activeModuleId);
         });
 
-        window._bus.$off('dragOut');
-        window._bus.$on('dragOut', (payload) => {
+        window._bus.$off('dragOut').$on('dragOut', (payload) => {
           for (let key in this.moduleInSubview) {
             if (this.moduleInSubview[key]) {
               window.$('#' + key).velocity('stop').velocity('reverse', {
@@ -139,7 +140,6 @@ export default {
             }
           }
           window._bus.$emit('whoDragOut', '');
-          // this.moduleInSubview = {};
         });
       }
     });

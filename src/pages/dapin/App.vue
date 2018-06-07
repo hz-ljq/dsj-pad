@@ -67,20 +67,30 @@ export default {
           scale: 1
         };
         window.$('#' + id).velocity('stop').velocity(status, { // 动画最终状态
-          duration: 5000,
+          duration: 1000,
           easing: 'easeOutCubic',
           complete: () => {
           }
         });
       } else if (content.eventType === 'dragOut') {
+        console.log('dragOut');
         for (let key in this.moduleInSubview) {
           if (this.moduleInSubview[key]) {
             this.moduleInSubview[key] = false
             window.$('#' + key).velocity('stop').velocity('reverse', {
-              duration: 5000,
+              duration: 1000,
               easing: 'easeOutCubic',
               complete: () => {
-                this.maskFlag = false;
+                let hasTrue = false;
+                for (let key in this.moduleInSubview) {
+                  if (this.moduleInSubview[key]) {
+                    hasTrue = true;
+                    break;
+                  }
+                }
+                if (!hasTrue) {
+                  this.maskFlag = false;
+                }
                 document.getElementById(key).style.zIndex = null;
               }
             });

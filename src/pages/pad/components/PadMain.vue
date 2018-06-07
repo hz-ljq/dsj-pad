@@ -1,65 +1,64 @@
 <template>
+<div id='shell-main'>
+  <div class='btn1' :class="{activeBtn: activeBtn === 'btn1'}" @click="goTo(1)">
+    <!-- btn1 -->
+  </div>
+  <div class='btn2' :class="{activeBtn: activeBtn === 'btn2'}" @click="goTo(2)">
+    <!-- btn2 -->
+  </div>
+  <div class='btn3' :class="{activeBtn: activeBtn === 'btn3'}" @click="goTo(3)">
+    <!-- btn3 -->
+  </div>
+  <div class='btn4' :class="{activeBtn: activeBtn === 'btn4'}" @click="goTo(4)">
+    <!-- btn4 -->
+  </div>
+  <div class='btn5' :class="{activeBtn: activeBtn === 'btn5'}" @click="goTo(5)">
+    <!-- btn1 -->
+  </div>
+  <div class='btn6' :class="{activeBtn: activeBtn === 'btn6'}" @click="goTo(6)">
+    <!-- btn2 -->
+  </div>
+  <div class='btn7' :class="{activeBtn: activeBtn === 'btn7'}" @click="goTo(7)">
+    <!-- btn3 -->
+  </div>
+  <div class='btn8' :class="{activeBtn: activeBtn === 'btn8'}" @click="goTo(8)">
+    <!-- btn4 -->
+  </div>
+  <div class='btn9' :class="{activeBtn: activeBtn === 'btn9'}" @click="goTo(9)">
+    <!-- btn4 -->
+  </div>
 
-  <div id="pad-main">
-    <div id='sub-view'>
-      <!-- <div class="title">
-        副视图区
-      </div> -->
-    </div>
-    <div id='main-view'>
-      <transition name='switch' appear>
-        <component :is='activeView' mode='pad'></component>
-      </transition>
-      <!-- <div class="border-images"></div> -->
-    </div>
+  <div id='main-view'>
+    <transition name='switch' appear>
+      <component :is='activeView' mode='pad'></component>
+    </transition>
+  </div>
+  <div id="main-view-box"></div>
 
-    <div id='shell-main'></div>
+  <div id='sub-view'>
+    <!-- <div class="title">
+      副视图区
+    </div> -->
+  </div>
 
-    <div class='btn1' :class="{activeBtn: activeBtn === 'btn1'}" @click="goTo(1)">
-      <!-- btn1 -->
+  <div id="edit-btn" @click="enterEditStatus">
+    <div v-if="!editStatus">
+      进入编辑状态
     </div>
-    <div class='btn2' :class="{activeBtn: activeBtn === 'btn2'}" @click="goTo(2)">
-      <!-- btn2 -->
-    </div>
-    <div class='btn3' :class="{activeBtn: activeBtn === 'btn3'}" @click="goTo(3)">
-      <!-- btn3 -->
-    </div>
-    <div class='btn4' :class="{activeBtn: activeBtn === 'btn4'}" @click="goTo(4)">
-      <!-- btn4 -->
-    </div>
-    <div class='btn5' :class="{activeBtn: activeBtn === 'btn5'}" @click="goTo(5)">
-      <!-- btn1 -->
-    </div>
-    <div class='btn6' :class="{activeBtn: activeBtn === 'btn6'}" @click="goTo(6)">
-      <!-- btn2 -->
-    </div>
-    <div class='btn7' :class="{activeBtn: activeBtn === 'btn7'}" @click="goTo(7)">
-      <!-- btn3 -->
-    </div>
-    <div class='btn8' :class="{activeBtn: activeBtn === 'btn8'}" @click="goTo(8)">
-      <!-- btn4 -->
-    </div>
-    <div class='btn9' :class="{activeBtn: activeBtn === 'btn9'}" @click="goTo(9)">
-      <!-- btn4 -->
-    </div>
-
-    <div id="edit-btn" @click="enterEditStatus">
-      <div v-if="!editStatus">
-        进入编辑状态
-      </div>
-      <div v-else>
-        退出编辑状态
-      </div>
-    </div>
-
-    <div id="drag-in-btn" @click="dragInHandler">
-      <!-- 移入副视图 -->
-    </div>
-
-    <div id="drag-out-btn" @click="dragOutHandler">
-      <!-- 移出副视图 -->
+    <div v-else>
+      退出编辑状态
     </div>
   </div>
+
+  <div id="drag-in-btn" @click="dragInHandler">
+    <!-- 移入副视图 -->
+  </div>
+
+  <div id="drag-out-btn" @click="dragOutHandler">
+    <!-- 移出副视图 -->
+  </div>
+
+</div>
 </template>
 
 <script>

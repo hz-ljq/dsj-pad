@@ -47,11 +47,11 @@ let options = {
       trigger: 'item',
       formatter: '{a} <br/>{b}: {c} ({d}%)'
     },
-    legend: {
-      orient: 'vertical',
-      x: 'left',
-      data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
-    },
+    // legend: {
+    //   orient: 'vertical',
+    //   x: 'left',
+    //   data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+    // },
     series: [{
       name: '访问来源',
       type: 'pie',
@@ -98,11 +98,11 @@ let options = {
       trigger: 'item',
       formatter: '{a} <br/>{b}: {c} ({d}%)'
     },
-    legend: {
-      orient: 'vertical',
-      x: 'left',
-      data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
-    },
+    // legend: {
+    //   orient: 'vertical',
+    //   x: 'left',
+    //   data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+    // },
     series: [{
       name: '访问来源',
       type: 'pie',
@@ -145,37 +145,38 @@ let options = {
     }]
   },
   bar1: {
-    title: {
-      text: '世界人口总量',
-      subtext: '数据来自网络'
-    },
+    // title: {
+    //   text: '世界人口总量',
+    //   subtext: '数据来自网络'
+    // },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
         type: 'shadow'
       }
     },
-    legend: {
-      data: ['2011年', '2012年']
-    },
+    // legend: {
+    //   data: ['2011年', '2012年']
+    // },
     grid: {
+      top: '16%',
       left: '3%',
       right: '4%',
       bottom: '3%',
       containLabel: true
     },
     xAxis: {
-      type: 'value',
-      boundaryGap: [0, 0.01]
+      type: 'category',
+      data: ['巴西', '印尼', '美国', '印度', '中国']
     },
     yAxis: {
-      type: 'category',
-      data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
+      type: 'value',
+      boundaryGap: [0, 0.01]
     },
     series: [{
       name: '2011年',
       type: 'bar',
-      data: [18203, 23489, 29034, 104970, 131744, 630230]
+      data: [182, 234, 234, 470, 230]
     }]
   },
   bar2: {
@@ -187,6 +188,7 @@ let options = {
       }
     },
     grid: {
+      top: '16%',
       left: '3%',
       right: '4%',
       bottom: '3%',
@@ -210,13 +212,13 @@ let options = {
     }]
   },
   radar: {
-    title: {
-      text: '基础雷达图'
-    },
+    // title: {
+    //   text: '基础雷达图'
+    // },
     tooltip: {},
-    legend: {
-      data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
-    },
+    // legend: {
+    //   data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+    // },
     radar: {
       // shape: 'circle',
       name: {
@@ -242,9 +244,6 @@ let options = {
       }, {
         name: '研发（Development）',
         max: 52000
-      }, {
-        name: '市场（Marketing）',
-        max: 25000
       }]
     },
     series: [{
@@ -252,7 +251,7 @@ let options = {
       type: 'radar',
       // areaStyle: {normal: {}},
       data: [{
-        value: [4300, 10000, 28000, 35000, 50000, 19000],
+        value: [4300, 10000, 28000, 35000, 50000],
         name: '预算分配（Allocated Budget）'
       }]
     }]
@@ -368,6 +367,13 @@ let options = {
     }]
   },
   line1: {
+    grid: {
+      top: '16%',
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
     xAxis: {
       type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -381,6 +387,13 @@ let options = {
     }]
   },
   line2: {
+    grid: {
+      top: '16%',
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
     xAxis: {
       type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']

@@ -1,65 +1,78 @@
 <template>
 <div id="page2">
   <div id="video1" data-id="video1" :class="{edit: editFlag && !moduleInSubview.video1, active: activeModuleId.includes('video1')}" @click="setActiveModule">
-    video1
+    <!-- video1 -->
+    Comp-1
   </div>
 
   <div id="video2" data-id="video2" :class="{edit: editFlag && !moduleInSubview.video2, active: activeModuleId.includes('video2')}" @click="setActiveModule">
-    video2
+    <!-- video2 -->
+    Comp-13
   </div>
 
   <div id="pies" data-id="pies" :class="{edit: editFlag && !moduleInSubview.pies, active: activeModuleId.includes('pies')}" @click="setActiveModule">
-    <div id="pie1">
+    Comp-2
+    <!-- <div id="pie1">
       pie1
     </div>
     <div id="pie2">
       pie2
-    </div>
+    </div> -->
   </div>
 
   <div id="bar1" data-id="bar1" :class="{edit: editFlag && !moduleInSubview.bar1, active: activeModuleId.includes('bar1')}" @click="setActiveModule">
-    bar1
+    <!-- bar1 -->
+    Comp-4
   </div>
 
   <div id="bar2" data-id="bar2" :class="{edit: editFlag && !moduleInSubview.bar2, active: activeModuleId.includes('bar2')}" @click="setActiveModule">
-    bar2
+    <!-- bar2 -->
+    Comp-5
   </div>
 
   <div id="pyramid" data-id="pyramid" :class="{edit: editFlag && !moduleInSubview.pyramid, active: activeModuleId.includes('pyramid')}" @click="setActiveModule">
-    pyramid
+    <!-- pyramid -->
+    Comp-3
   </div>
 
   <div id="map" data-id="map" :class="{edit: editFlag && !moduleInSubview.map, active: activeModuleId.includes('map')}" @click="setActiveModule">
-    map
+    <!-- map -->
+    Comp-6
   </div>
 
   <div id="mini-map" data-id="mini-map" :class="{edit: editFlag && !moduleInSubview['mini-map'], active: activeModuleId.includes('mini-map')}" @click="setActiveModule">
-    ini-map
+    <!-- ini-map -->
+    Comp-8
   </div>
 
   <div id="announcement" data-id="announcement" :class="{edit: editFlag && !moduleInSubview.announcement, active: activeModuleId.includes('announcement')}" @click="setActiveModule">
-    announcement
+    <!-- announcement -->
+    Comp-7
   </div>
 
   <div id="pictorial-bar" data-id="pictorial-bar" :class="{edit: editFlag && !moduleInSubview['pictorial-bar'], active: activeModuleId.includes('pictorial-bar')}" @click="setActiveModule">
-    pictorial-bar
+    <!-- pictorial-bar -->
+    Comp-9
   </div>
 
   <div id="radar" data-id="radar" :class="{edit: editFlag && !moduleInSubview.radar, active: activeModuleId.includes('radar')}" @click="setActiveModule">
-    radar
+    <!-- radar -->
+    Comp-10
   </div>
 
   <div id="lines" data-id="lines" :class="{edit: editFlag && !moduleInSubview.lines, active: activeModuleId.includes('lines')}" @click="setActiveModule">
-    <div id="line1">
+    <!-- <div id="line1">
       line1
     </div>
     <div id="line2">
       line2
-    </div>
+    </div> -->
+    Comp-12
   </div>
 
   <div id="picture" data-id="picture" :class="{edit: editFlag && !moduleInSubview.picture, active: activeModuleId.includes('picture')}" @click="setActiveModule">
-    picture
+    <!-- picture -->
+    Comp-11
   </div>
 
 </div>
@@ -179,7 +192,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.backupLayout();
-      this.initEcharts();
+      // this.initEcharts();
       if (this.mode === 'pad') {
         window._bus.$off('editStatusSwitch').$on('editStatusSwitch', (payload) => {
           this.editFlag = payload;

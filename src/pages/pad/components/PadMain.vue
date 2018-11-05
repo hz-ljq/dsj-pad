@@ -24,9 +24,8 @@
   <div class='btn8' :class="{activeBtn: activeBtn === 'btn8'}" @click="goTo(8)">
     <!-- btn4 -->
   </div>
-  <div class='btn9' :class="{activeBtn: activeBtn === 'btn9'}" @click="goTo(9)">
-    <!-- btn4 -->
-  </div>
+  <!-- <div class='btn9' :class="{activeBtn: activeBtn === 'btn9'}" @click="goTo(9)">
+  </div> -->
 
   <div id='main-view'>
     <transition name='switch' appear>

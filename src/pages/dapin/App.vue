@@ -44,6 +44,10 @@ export default {
         this.$router.push({
           path: 'page' + content.payload
         });
+        this.maskFlag = false;
+        this.moduleInSubview = {};
+        this.activeModuleId = [];
+        this.layout = {}
       } else if (content.eventType === 'dragIn') {
         let id = JSON.parse(content.payload).id;
 

@@ -1,14 +1,14 @@
 <template>
 <div id="page2">
-  <div id="video1" data-id="video1" :class="{edit: editFlag && !moduleInSubview.video1, active: activeModuleId === 'video1'}" @click="setActiveModule">
+  <div id="video1" data-id="video1" :class="{edit: editFlag && !moduleInSubview.video1, active: activeModuleId.includes('video1')}" @click="setActiveModule">
     video1
   </div>
 
-  <div id="video2" data-id="video2" :class="{edit: editFlag && !moduleInSubview.video2, active: activeModuleId === 'video2'}" @click="setActiveModule">
+  <div id="video2" data-id="video2" :class="{edit: editFlag && !moduleInSubview.video2, active: activeModuleId.includes('video2')}" @click="setActiveModule">
     video2
   </div>
 
-  <div id="pies" data-id="pies" :class="{edit: editFlag && !moduleInSubview.pies, active: activeModuleId === 'pies'}" @click="setActiveModule">
+  <div id="pies" data-id="pies" :class="{edit: editFlag && !moduleInSubview.pies, active: activeModuleId.includes('pies')}" @click="setActiveModule">
     <div id="pie1">
       pie1
     </div>
@@ -17,39 +17,39 @@
     </div>
   </div>
 
-  <div id="bar1" data-id="bar1" :class="{edit: editFlag && !moduleInSubview.bar1, active: activeModuleId === 'bar1'}" @click="setActiveModule">
+  <div id="bar1" data-id="bar1" :class="{edit: editFlag && !moduleInSubview.bar1, active: activeModuleId.includes('bar1')}" @click="setActiveModule">
     bar1
   </div>
 
-  <div id="bar2" data-id="bar2" :class="{edit: editFlag && !moduleInSubview.bar2, active: activeModuleId === 'bar2'}" @click="setActiveModule">
+  <div id="bar2" data-id="bar2" :class="{edit: editFlag && !moduleInSubview.bar2, active: activeModuleId.includes('bar2')}" @click="setActiveModule">
     bar2
   </div>
 
-  <div id="pyramid" data-id="pyramid" :class="{edit: editFlag && !moduleInSubview.pyramid, active: activeModuleId === 'pyramid'}" @click="setActiveModule">
+  <div id="pyramid" data-id="pyramid" :class="{edit: editFlag && !moduleInSubview.pyramid, active: activeModuleId.includes('pyramid')}" @click="setActiveModule">
     pyramid
   </div>
 
-  <div id="map" data-id="map" :class="{edit: editFlag && !moduleInSubview.map, active: activeModuleId === 'map'}" @click="setActiveModule">
+  <div id="map" data-id="map" :class="{edit: editFlag && !moduleInSubview.map, active: activeModuleId.includes('map')}" @click="setActiveModule">
     map
   </div>
 
-  <div id="mini-map" data-id="mini-map" :class="{edit: editFlag && !moduleInSubview['mini-map'], active: activeModuleId === 'mini-map'}" @click="setActiveModule">
+  <div id="mini-map" data-id="mini-map" :class="{edit: editFlag && !moduleInSubview['mini-map'], active: activeModuleId.includes('mini-map')}" @click="setActiveModule">
     ini-map
   </div>
 
-  <div id="announcement" data-id="announcement" :class="{edit: editFlag && !moduleInSubview.announcement, active: activeModuleId === 'announcement'}" @click="setActiveModule">
+  <div id="announcement" data-id="announcement" :class="{edit: editFlag && !moduleInSubview.announcement, active: activeModuleId.includes('announcement')}" @click="setActiveModule">
     announcement
   </div>
 
-  <div id="pictorial-bar" data-id="pictorial-bar" :class="{edit: editFlag && !moduleInSubview['pictorial-bar'], active: activeModuleId === 'pictorial-bar'}" @click="setActiveModule">
+  <div id="pictorial-bar" data-id="pictorial-bar" :class="{edit: editFlag && !moduleInSubview['pictorial-bar'], active: activeModuleId.includes('pictorial-bar')}" @click="setActiveModule">
     pictorial-bar
   </div>
 
-  <div id="radar" data-id="radar" :class="{edit: editFlag && !moduleInSubview.radar, active: activeModuleId === 'radar'}" @click="setActiveModule">
+  <div id="radar" data-id="radar" :class="{edit: editFlag && !moduleInSubview.radar, active: activeModuleId.includes('radar')}" @click="setActiveModule">
     radar
   </div>
 
-  <div id="lines" data-id="lines" :class="{edit: editFlag && !moduleInSubview.lines, active: activeModuleId === 'lines'}" @click="setActiveModule">
+  <div id="lines" data-id="lines" :class="{edit: editFlag && !moduleInSubview.lines, active: activeModuleId.includes('lines')}" @click="setActiveModule">
     <div id="line1">
       line1
     </div>
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <div id="picture" data-id="picture" :class="{edit: editFlag && !moduleInSubview.picture, active: activeModuleId === 'picture'}" @click="setActiveModule">
+  <div id="picture" data-id="picture" :class="{edit: editFlag && !moduleInSubview.picture, active: activeModuleId.includes('picture')}" @click="setActiveModule">
     picture
   </div>
 
@@ -78,7 +78,8 @@ export default {
   data() {
     return {
       // mousedownFlag: false
-      activeModuleId: '',
+      // activeModuleId: '',
+      activeModuleId: [],
       editFlag: false,
       moduleInSubview: {
         'video1': false,
@@ -96,6 +97,8 @@ export default {
         'picture': false
       },
 
+      layout: {},
+
       'pie1': null,
       'pie2': null,
       'bar1': null,
@@ -111,6 +114,20 @@ export default {
     // mousemoveHandler(e) {
     //   console.log(e);
     // }
+    // setActiveModule(e) {
+    //   console.log(e);
+    //   for (let x of e.path) {
+    //     if (x.id && window.$('#' + x.id).attr('data-id')) {
+    //       console.log(x.id);
+    //       if (!this.moduleInSubview[x.id]) {
+    //         if (this.editFlag) {
+    //           this.activeModuleId = x.id;
+    //         }
+    //       }
+    //       break;
+    //     }
+    //   }
+    // },
     setActiveModule(e) {
       console.log(e);
       for (let x of e.path) {
@@ -118,7 +135,11 @@ export default {
           console.log(x.id);
           if (!this.moduleInSubview[x.id]) {
             if (this.editFlag) {
-              this.activeModuleId = x.id;
+              if (this.activeModuleId.length < 2) {
+                if (!this.activeModuleId.includes(x.id)) {
+                  this.activeModuleId.push(x.id);
+                }
+              }
             }
           }
           break;
@@ -144,19 +165,48 @@ export default {
       this['pictorial-bar'].setOption(options['pictorial-bar']);
       this.line1.setOption(options.line1);
       this.line2.setOption(options.line2);
+    },
+    backupLayout() {
+      for (let key in this.moduleInSubview) {
+        let dom = document.getElementById(key);
+        this.layout[key] = {
+          left: dom.offsetLeft,
+          top: dom.offsetTop
+        }
+      }
     }
   },
   mounted() {
     this.$nextTick(() => {
+      this.backupLayout();
       this.initEcharts();
       if (this.mode === 'pad') {
         window._bus.$off('editStatusSwitch').$on('editStatusSwitch', (payload) => {
           this.editFlag = payload;
           if (!this.editFlag) {
-            this.activeModuleId = '';
+            this.activeModuleId = [];
+            // for (let key in this.moduleInSubview) {
+            //   if (this.moduleInSubview[key]) {
+            //     window.$('#' + key).velocity('stop').velocity('reverse', {
+            //       complete: () => {
+            //         this.moduleInSubview[key] = false;
+            //       }
+            //     });
+            //   }
+            // }
             for (let key in this.moduleInSubview) {
               if (this.moduleInSubview[key]) {
-                window.$('#' + key).velocity('stop').velocity('reverse', {
+                let status = {
+                  left: this.layout[key].left,
+                  top: this.layout[key].top,
+                  rotateZ: -360,
+                  scale: 1
+                  // boxShadowBlur: '0px',
+                  // boxShadowSpread: '0px'
+                };
+                window.$('#' + key).velocity('stop').velocity(status, {
+                  duration: 1000,
+                  easing: 'easeOutCubic',
                   complete: () => {
                     this.moduleInSubview[key] = false;
                   }
@@ -167,9 +217,10 @@ export default {
         });
 
         window._bus.$off('dragIn').$on('dragIn', (payload) => {
-          if (!this.activeModuleId) return;
+          // if (!this.activeModuleId) return;
+          if (this.activeModuleId.length === 0) return;
 
-          window._bus.$emit('dragOut', '');
+          // window._bus.$emit('dragOut', '');
 
           let mainView = document.getElementById('main-view');
           let posOfMainView = {
@@ -188,43 +239,59 @@ export default {
             left: (posOfSubView.left + posOfSubView.right) / 2,
             top: (posOfSubView.top + posOfSubView.bottom) / 2
           };
-          let activeModule = document.getElementById(this.activeModuleId);
-          // console.log(window.$('#main-view').css('transform'));
+
           let matrixArr = window.$('#main-view').css('transform').substring(7, window.$('#main-view').css('transform').length - 1).split(', ');
           let scaleX = matrixArr[0];
           let scaleY = matrixArr[3];
 
-          let scaleBase = activeModule.offsetWidth * scaleX / (activeModule.offsetHeight * scaleY) >= subView.offsetWidth / subView.offsetHeight
-          let scaleVal = scaleBase ? subView.offsetWidth / (activeModule.offsetWidth * scaleX) : subView.offsetHeight / (activeModule.offsetHeight * scaleY)
-          let status = {
-            left: (centerOfSubView.left - posOfMainView.left) / scaleX - activeModule.offsetWidth / 2,
-            top: (centerOfSubView.top - posOfMainView.top) / scaleY - activeModule.offsetHeight / 2,
-            rotateZ: 360,
-            scale: scaleVal * 0.85
-            // boxShadowBlur: '0px',
-            // boxShadowSpread: '0px'
-          };
-          // let status = {
-          //   left: 900,
-          //   top: 700,
-          //   rotateZ: 360,
-          //   scale: 1
-          // };
-          let activeModuleId = this.activeModuleId;
-          this.activeModuleId = '';
-          this.moduleInSubview[activeModuleId] = true;
-          window.$('#' + activeModuleId).velocity('stop').velocity(status, { // 动画最终状态
-            duration: 1000,
-            easing: 'easeOutCubic',
-            complete: () => {}
-          });
-          window._bus.$emit('whoDragIn', activeModuleId);
+          this.activeModuleId.forEach((item, index) => {
+            let activeModule = document.getElementById(item);
+            // console.log(window.$('#main-view').css('transform'));
+
+            let scaleBase = activeModule.offsetWidth * scaleX / (activeModule.offsetHeight * scaleY) >= (subView.offsetWidth / this.activeModuleId.length) / subView.offsetHeight
+            let scaleVal = scaleBase ? subView.offsetWidth / this.activeModuleId.length / (activeModule.offsetWidth * scaleX) : subView.offsetHeight / (activeModule.offsetHeight * scaleY)
+            // console.log(scaleBase);
+            let status = {
+              left: (centerOfSubView.left - posOfMainView.left) / this.activeModuleId.length / scaleX - activeModule.offsetWidth / 2 + subView.offsetWidth / 2 * (index % 2) / scaleX,
+              top: (centerOfSubView.top - posOfMainView.top) / scaleY - activeModule.offsetHeight / 2,
+              rotateZ: 360,
+              scale: scaleVal * 0.85
+              // boxShadowBlur: '0px',
+              // boxShadowSpread: '0px'
+            };
+            // let status = {
+            //   left: 900,
+            //   top: 700,
+            //   rotateZ: 360,
+            //   scale: 1
+            // };
+            this.moduleInSubview[item] = true;
+            window.$('#' + item).velocity('stop').velocity(status, { // 动画最终状态
+              duration: 1000,
+              easing: 'easeOutCubic',
+              complete: () => {
+                // this.activeModuleId = [];
+              }
+            });
+            window._bus.$emit('whoDragIn', item);
+          })
         });
 
         window._bus.$off('dragOut').$on('dragOut', (payload) => {
+          this.activeModuleId = [];
           for (let key in this.moduleInSubview) {
             if (this.moduleInSubview[key]) {
-              window.$('#' + key).velocity('stop').velocity('reverse', {
+              let status = {
+                left: this.layout[key].left,
+                top: this.layout[key].top,
+                rotateZ: -360,
+                scale: 1
+                // boxShadowBlur: '0px',
+                // boxShadowSpread: '0px'
+              };
+              window.$('#' + key).velocity('stop').velocity(status, {
+                duration: 1000,
+                easing: 'easeOutCubic',
                 complete: () => {
                   this.moduleInSubview[key] = false;
                 }

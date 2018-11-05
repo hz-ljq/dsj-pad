@@ -115,7 +115,8 @@ export default {
     },
     initWebsocket() {
       // 建立连接对象（还未发起连接）
-      let socket = new SockJS('http://47.98.129.186:8093/ws');
+      // let socket = new SockJS('http://47.98.129.186:8093/ws');
+      let socket = new SockJS('http://47.99.96.181:8200/ws');
       // 获取 STOMP 子协议的客户端对象
       this.stompClient = Stomp.over(socket);
       // 向服务器发起websocket连接并发送CONNECT帧

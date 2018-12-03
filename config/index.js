@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    // host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,
@@ -47,9 +47,9 @@ module.exports = {
     // // Template for index.html
     // index: path.resolve(__dirname, '../dist/index.html'),
     entry: {
-      index: path.resolve(__dirname, '../dist/index.html'),
-      pt: path.resolve(__dirname, '../dist/pt.html'),
-      es: path.resolve(__dirname, '../dist/es.html')
+      // index: path.resolve(__dirname, '../dist/index.html'),
+      // dapin: path.resolve(__dirname, '../dist/dapin.html'),
+      // pad: path.resolve(__dirname, '../dist/pad.html')
     },
 
     // Paths
@@ -61,7 +61,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

@@ -143,7 +143,8 @@ export default {
     // },
     setActiveModule(e) {
       console.log(e);
-      for (let x of e.path) {
+      const path = event.path || (event.composedPath && event.composedPath());
+      for (let x of path) {
         if (x.id && window.$('#' + x.id).attr('data-id')) {
           console.log(x.id);
           if (!this.moduleInSubview[x.id]) {
